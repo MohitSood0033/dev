@@ -1,0 +1,22 @@
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #ffa21d;">
+
+  <a class="navbar-brand" style="font-weight: bolder;">DEMO</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-list-4" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbar-list-4">
+    <ul class="navbar-nav">
+        <li class="nav-item dropdown">
+        <a style="font-weight: bold;color: black;font-size: 1.2rem;" class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          USER
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" (click)="onUser()">User</a>
+          <a class="dropdown-item" (click)="onDashboard()">Dashboard</a>
+          
+        </div>
+      </li>   
+    </ul>
+  </div>
+    <app-nav-right></app-nav-right>
+  </nav>

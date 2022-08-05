@@ -1,0 +1,31 @@
+<div class="sidenav">
+  <div class="login-main-text">
+    <h2>Welcome<br> to </h2>
+    <h3>Login Page</h3>
+  </div>
+</div>
+<div class="main" >
+  <div class="col-md-6 col-sm-12" >
+        <form class="login-form"  [formGroup]="loginFormGroup" >
+           <div class="form-group">
+              <label style="font-weight: bold;">User Name</label>
+              <input type="text" class="form-control" name="email" placeholder="User Name"
+              formControlName="userName" [ngClass]="{ 'is-invalid': submitted && f['userName'].errors }">
+              <div *ngIf="submitted && f['userName'].errors" class="invalid-feedback">
+                  <div *ngIf="f['userName'].errors['required']">User name required</div>
+                </div>
+           </div>
+           <br>
+           <div class="form-group">
+              <label style="font-weight: bold;">Password</label>
+              <input type="password" class="form-control" name="password" placeholder="Password"
+              formControlName="password" [ngClass]="{ 'is-invalid': submitted && f['password'].errors }">
+              <div *ngIf="submitted && f['password'].errors" class="invalid-feedback">
+                  <div *ngIf="f['password'].errors['required']">Password required</div>
+                </div>
+           </div>
+           <button (click)="onSubmit()" type="submit" class="btn btn-black">Login</button>   
+           <a routerLink="../signup" class="btn btn-link" style="color: #ffa21d;">Register</a>         
+        </form>
+  </div>
+</div>

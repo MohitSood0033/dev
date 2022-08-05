@@ -1,0 +1,76 @@
+<app-nav-bar></app-nav-bar>
+<br>
+<div class="data-table-div">
+    <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="row-border hover table-striped table-bg-dark"
+        style="width: 100%">
+        <thead>
+            <tr style="text-align: center;">
+                <th class="border-right">SNo.</th>
+                <th class="border-right">First Name</th>
+                <th class="border-right">Last Name</th>
+                <th class="border-right">Email</th>
+                <!-- <th class="border-right">Roles</th> -->
+                <!-- <th class="border-right">User Id</th>              -->
+                <th></th>
+            </tr>
+        </thead>
+        <tbody style="text-align: center;">
+            <tr *ngFor="let item of data; let i = index;" style="white-space: nowrap">
+<!-- <tr> -->
+                <td class="border-right">{{item['id']}}</td>
+                <td class="border-right">{{item['first_name']}}</td>
+                <td class="border-right">{{item['last_name']}}</td>
+                <td class="border-right">{{item['email']}}</td>
+                <!-- <td class="border-right">ABC</td>
+                <td class="border-right">ABC</td> -->
+                <!-- <td class="border-right">{{item['userId']}}</td>                  -->
+                <!-- <td>
+                    <button (click)="deleteRow(item)"><i class="fas fa-trash"></i></button>&nbsp;
+                    <button (click)="update(item)"><i class="fas fa-pen"></i></button>
+                </td> -->
+                <td>
+<mat-icon>delete</mat-icon>&nbsp;
+                    <mat-icon>edit</mat-icon>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="h-100 d-flex align-items-center justify-content-center">
+    <div class="col-md-4 col-sm-12">
+      <form class="signup-form" [formGroup]="userForm">
+        <div class="form-group">
+          <label for="firstName">First Name</label>
+          <input type="text" formControlName="firstName" class="form-control"
+            [ngClass]="{ 'is-invalid': submitted && f['firstName'].errors }" />
+          <div *ngIf="submitted && f['firstName'].errors" class="invalid-feedback">
+            <div *ngIf="f['firstName'].errors['required']">First Name is required</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="lastName">Last Name</label>
+          <input type="text" formControlName="lastName" class="form-control"
+            [ngClass]="{ 'is-invalid': submitted && f['lastName'].errors }" />
+          <div *ngIf="submitted && f['lastName'].errors" class="invalid-feedback">
+            <div *ngIf="f['lastName'].errors['required']">Last Name is required</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted 
+            && f['email'].errors}" (blur)="getApi()" />
+          <div *ngIf="(f['email'].dirty || f['email'].touched) && f['email'].errors"
+            style="color: #dc3545;font-size: 12px;margin-top: 8px;">Email is invalid</div>
+          <div *ngIf="(f['email'].dirty || f['email'].touched)"
+            style="color: #dc3545;font-size: 12px;margin-top: 8px;">{{data}}</div>
+  
+        </div>
+        <div class="form-group">
+       
+          <div class="text-center">
+            <button (click)="onSubmit()" type="submit" class="btn btn-black">Create</button>&nbsp;
+            <button class="btn btn-secondary" type="reset" (click)="onReset()">Reset</button>
+          </div>
+        </div>
+      </form>
+    </div>
